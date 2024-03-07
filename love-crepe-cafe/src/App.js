@@ -1,21 +1,22 @@
-import Index from './components/Index.jsx';
-import Navbar from './components/Navbar/Navbar.jsx';
-import Search from './components/Search/Search.jsx';
-import SearchAppBar from './components/Search/SearchAppBar.jsx'
-import Shownenu from './components/Shownenu/Shownenu.jsx'
-import Menugroup from './components/Menugroup/Menugroup.jsx';
-import Listmenu from  './components/Listmenu/Listmenu.jsx';
-import Addanddel from './components/addanddel/addanddel.jsx';
-import Option from './components/option/option.jsx';
+import ReactDOM from 'react-dom/client'
+import Layout from './page/Layout.js';
+import HomeCustomer from './page/Home_customer.jsx';
+import NoPage from './page/NoPage.jsx';
+import Listmenu from './page/ListMenu.jsx';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 function App() {
   return (
-    <div className="App">
-      {/* <Index/> */}
-      <Navbar />
-      <Option />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomeCustomer />} />
+          <Route path='list' element={<Listmenu />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
 
-      
-    </div>
   );
 }
 
